@@ -577,12 +577,7 @@ open class SwiftOCR {
             dodgeBlendFilter.useNextFrameForImageCapture()
             image?.processImage()
             
-            #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
             let orientationUp = UIImage.Orientation.up
-            #else
-            //GPUImage is using a re-definition of the UIImageOrientation for Mac compilation
-            let orientationUp = UIImageOrientation.up
-            #endif
             
             var processedImage:OCRImage? = dodgeBlendFilter.imageFromCurrentFramebuffer(with: orientationUp)
             
@@ -626,12 +621,7 @@ open class SwiftOCR {
         thresholdFilter.useNextFrameForImageCapture()
         picture?.processImage()
         
-        #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
         let orientationUp = UIImage.Orientation.up
-        #else
-        //GPUImage is using a re-definition of the UIImageOrientation for Mac compilation
-        let orientationUp = UIImageOrientation.up
-        #endif
         
         var processedImage:OCRImage? = thresholdFilter.imageFromCurrentFramebuffer(with: orientationUp)
         

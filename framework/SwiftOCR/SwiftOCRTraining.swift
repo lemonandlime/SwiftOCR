@@ -73,7 +73,12 @@ open class SwiftOCRTraining {
         }
         
         let randomFloat: (CGFloat) -> CGFloat = { modi in
-            return  (0 - modi) + CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (modi * 2)
+
+            let randomizer = CGFloat(arc4random())
+            let maxFloat = CGFloat(UINT32_MAX)
+
+            return  (0 - modi) + randomizer / maxFloat * (modi * 2)
+
         }
         
         //Font
@@ -219,7 +224,12 @@ open class SwiftOCRTraining {
         var trainingSet = [([Float],[Float])]()
         
         let randomFloat: (CGFloat) -> CGFloat = { modi in
-            return  (0 - modi) + CGFloat(arc4random()) / CGFloat(UINT32_MAX) * (modi * 2)
+
+            let randomizer = CGFloat(arc4random())
+            let maxFloat = CGFloat(UINT32_MAX)
+
+
+            return  (0 - modi) + randomizer / maxFloat * (modi * 2)
         }
         
         for (image, characters) in images {
